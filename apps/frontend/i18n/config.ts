@@ -2,12 +2,13 @@
  * Internationalization configuration
  */
 
-export const locales = ['en', 'es', 'zh', 'ja', 'pt'] as const;
+export const locales = ['tr', 'en', 'es', 'zh', 'ja', 'pt'] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = 'en';
+export const defaultLocale: Locale = 'tr';
 
 export const localeNames: Record<Locale, string> = {
+  tr: 'Türkçe',
   en: 'English',
   es: 'Español',
   zh: '中文',
@@ -16,6 +17,7 @@ export const localeNames: Record<Locale, string> = {
 };
 
 export const localeFlags: Record<Locale, string> = {
+  tr: '🇹🇷',
   en: '🇺🇸',
   es: '🇪🇸',
   zh: '🇨🇳',

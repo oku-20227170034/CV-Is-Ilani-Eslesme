@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "message": "API test output",
+  "data": {
+    "cv_text": "test cv",
+    "position": "yazilim",
+    "score": 0.85,
+    "matched_keywords": ["python", "api", "backend"],
+    "suggestions": [
+      "Python deneyiminizi vurgulayın",
+      "FastAPI veya Django projelerinizi ekleyin"
+    ]
+  },
+  "timestamp": "2026-04-21T10:00:00Z"
+}

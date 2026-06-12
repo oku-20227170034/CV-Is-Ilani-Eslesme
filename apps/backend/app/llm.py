@@ -585,25 +585,8 @@ def _appears_truncated(data: dict) -> bool:
     """LLM-001: Check if JSON data appears to be truncated.
 
     Detects suspicious patterns indicating incomplete responses.
+    Disabled empty array checks to avoid false positive retries on resumes with empty sections.
     """
-    if not isinstance(data, dict):
-        return False
-
-    # Check for empty arrays that should typically have content
-    suspicious_empty_arrays = ["workExperience", "education", "skills"]
-    for key in suspicious_empty_arrays:
-        if key in data and data[key] == []:
-            # Log warning - these are rarely empty in real resumes
-            logging.warning(
-                "Possible truncation detected: '%s' is empty",
-                key,
-            )
-            return True
-
-    # personalInfo is intentionally excluded: the improve prompts tell the LLM
-    # to skip it, and _preserve_personal_info() restores it from the original.
-    # Checking for it here caused 3 wasteful retry attempts on every request.
-
     return False
 
 

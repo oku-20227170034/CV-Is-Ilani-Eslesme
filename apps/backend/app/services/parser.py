@@ -1,4 +1,4 @@
-"""Document parsing service using markitdown and LLM."""
+"""Document parsing service using markitdown, kreuzberg (OCR) and LLM."""
 
 import logging
 import re
@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from markitdown import MarkItDown
+from kreuzberg import extract_bytes, ExtractionConfig, OcrConfig, TesseractConfig
 
 from app.llm import complete_json
 from app.prompts import PARSE_RESUME_PROMPT
@@ -14,6 +15,14 @@ from app.prompts.templates import RESUME_SCHEMA_EXAMPLE
 from app.schemas import ResumeData
 
 logger = logging.getLogger(__name__)
+
+# Desteklenen görsel uzantıları — bu formatlar için OCR kullanılır
+_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff", ".tif"}
+
+# OCR dil ayarı: Türkçe + İngilizce (TesseractConfig içinden)
+_OCR_CONFIG = ExtractionConfig(
+    ocr=OcrConfig(tesseract_config=TesseractConfig(language="tur+eng"))
+)
 
 # Matches date ranges like "Jan 2020 - Dec 2023", "May 2021 - Present",
 # "January 2020 - Current", and single dates like "Jun 2023".
@@ -116,8 +125,39 @@ def restore_dates_from_markdown(
     return parsed_data
 
 
+async def _ocr_extract(content: bytes, filename: str) -> str:
+    """Kreuzberg ile OCR uygula (görseller ve taranmış PDF'ler için).
+
+    Args:
+        content: Ham dosya baytları
+        filename: Uzantı tespiti için orijinal dosya adı
+
+    Returns:
+        OCR ile çıkarılan metin
+    """
+    suffix = Path(filename).suffix.lower()
+    mime_map = {
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png",
+        ".webp": "image/webp",
+        ".bmp": "image/bmp",
+        ".tiff": "image/tiff",
+        ".tif": "image/tiff",
+        ".pdf": "application/pdf",
+    }
+    mime_type = mime_map.get(suffix, "application/octet-stream")
+    logger.info("Kreuzberg OCR başlatılıyor: %s (%s)", filename, mime_type)
+    result = await extract_bytes(content, mime_type=mime_type, config=_OCR_CONFIG)
+    return result.content
+
+
 async def parse_document(content: bytes, filename: str) -> str:
-    """Convert PDF/DOCX to Markdown using markitdown.
+    """Convert PDF/DOCX/image to Markdown using markitdown or kreuzberg OCR.
+
+    Görsel dosyalar (.jpg, .png vb.) doğrudan Kreuzberg OCR ile işlenir.
+    PDF dosyaları önce markitdown ile denenir; metin çıkmazsa (taranmış PDF)
+    Kreuzberg OCR devreye girer.
 
     Args:
         content: Raw file bytes
@@ -128,7 +168,12 @@ async def parse_document(content: bytes, filename: str) -> str:
     """
     suffix = Path(filename).suffix.lower()
 
-    # Write to temp file for markitdown
+    # Görsel dosyalar → direkt OCR
+    if suffix in _IMAGE_EXTENSIONS:
+        logger.info("Görsel dosya algılandı, OCR uygulanıyor: %s", filename)
+        return await _ocr_extract(content, filename)
+
+    # PDF / DOCX → önce markitdown dene
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
         tmp.write(content)
         tmp_path = Path(tmp.name)
@@ -136,9 +181,19 @@ async def parse_document(content: bytes, filename: str) -> str:
     try:
         md = MarkItDown()
         result = md.convert(str(tmp_path))
-        return result.text_content
+        text = result.text_content
     finally:
         tmp_path.unlink(missing_ok=True)
+
+    # Metin boş veya çok kısaysa → taranmış PDF olabilir, OCR dene
+    if len(text.strip()) < 50 and suffix == ".pdf":
+        logger.info(
+            "PDF'den metin çıkarılamadı (taranmış olabilir), OCR deneniyor: %s",
+            filename,
+        )
+        return await _ocr_extract(content, filename)
+
+    return text
 
 
 async def parse_resume_to_json(markdown_text: str) -> dict[str, Any]:

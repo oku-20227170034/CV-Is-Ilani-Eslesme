@@ -3,52 +3,38 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslations } from '@/lib/i18n';
+import { ChevronRight } from 'lucide-react';
 
 export default function Hero() {
   const { t } = useTranslations();
 
-  // Hover translates DOWN-RIGHT (+1, +1) for the press-in effect — matches
-  // every other button in the codebase. The previous version translated
-  // UP-LEFT (-1, -1) which was the inverse and looked broken next to the
-  // rest of the design system.
-  const buttonClass =
-    'group relative border border-black bg-transparent px-8 py-3 font-mono text-sm font-bold uppercase text-blue-700 transition-[transform,box-shadow,background-color,color] duration-150 ease-out hover:bg-blue-700 hover:text-background hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-sw-default active:translate-x-0 active:translate-y-0 active:shadow-none cursor-pointer';
-
   return (
-    <section
-      className="h-screen w-full p-4 md:p-12 lg:p-24 bg-background"
-      style={{
-        backgroundImage:
-          'linear-gradient(rgba(29, 78, 216, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(29, 78, 216, 0.1) 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-      }}
-    >
-      <div className="flex h-full w-full flex-col items-center justify-center border border-black text-blue-700 bg-background shadow-sw-xl">
-        <h1 className="mb-12 text-center font-mono text-6xl font-bold uppercase leading-none tracking-tighter md:text-8xl lg:text-9xl selection:bg-blue-700 selection:text-white">
-          {t('home.brandLine1')}
-          <br />
-          {t('home.brandLine2')}
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-rose-100">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: 'url(/premium_hero_bg_1778012518822.png)',
+          transform: 'scale(1.1)',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-rose-900/20 via-rose-800/10 to-rose-50" />
+      </div>
+
+      {/* Decorative Blobs */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-rose-400/10 rounded-full blur-[150px] animate-pulse delay-700" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <h1 className="mb-12 text-center font-sans text-5xl md:text-7xl lg:text-[7rem] font-bold leading-[1.1] tracking-tighter text-rose-900 drop-shadow-xl">
+          <span className="block opacity-90">ASOZ |</span>
+          <span className="block italic text-white/95">CV EŞLEŞTİRME</span>
         </h1>
 
-        <div className="flex flex-col gap-4 md:flex-row md:gap-12">
-          <a
-            href="https://github.com/srbhr/Resume-Matcher"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonClass}
-          >
-            GitHub
-          </a>
-          <a
-            href="https://resumematcher.fyi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonClass}
-          >
-            {t('home.docs')}
-          </a>
-          <Link href="/dashboard" className={buttonClass}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+          <Link href="/dashboard" className="group relative px-20 py-8 bg-rose-900 text-white rounded-full font-bold text-2xl shadow-premium-xl transition-all duration-500 hover:bg-rose-800 hover:-translate-y-2 hover:shadow-2xl flex items-center gap-6 active:scale-95">
             {t('home.launchApp')}
+            <ChevronRight className="w-8 h-8 transition-transform group-hover:translate-x-2" />
           </Link>
         </div>
       </div>

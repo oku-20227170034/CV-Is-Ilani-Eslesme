@@ -9,56 +9,55 @@ export const SwissGrid = ({ children }: { children: React.ReactNode }) => {
   const { t } = useTranslations();
 
   return (
-    // 1. Outer Wrapper: Fixed height with grid background
     <div
-      className="h-screen w-full flex justify-center items-start py-12 px-4 md:px-8 overflow-hidden bg-background"
-      style={{
-        backgroundImage:
-          'linear-gradient(rgba(29, 78, 216, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(29, 78, 216, 0.1) 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-      }}
+      className="min-h-screen w-full flex justify-center items-start py-4 px-4 md:py-8 md:px-8 overflow-hidden bg-rose-50"
     >
-      {/* 2. The Main Container: Sharp black borders, creating the "Canvas" */}
-      <div className="w-full max-w-[86rem] max-h-full border border-black bg-background shadow-sw-lg flex flex-col overflow-hidden">
-        {/* Header Section - stays above hovered cards */}
-        <div className="border-b border-black p-8 md:p-12 shrink-0 bg-background relative z-30">
-          <h1 className="font-serif text-5xl md:text-7xl text-black tracking-tight leading-[0.95] uppercase">
-            {t('nav.dashboard')}
-          </h1>
-          <p className="mt-6 text-sm font-mono text-blue-700 uppercase tracking-wide max-w-md font-bold">
-            {'// '}
-            {t('dashboard.selectModule')}
-          </p>
+      {/* The Main Container */}
+      <div className="w-full max-w-[90rem] min-h-[90vh] bg-rose-100/90 border border-rose-200 shadow-premium-xl flex flex-col overflow-hidden rounded-[2rem]">
+        {/* Header Section */}
+        <div className="p-8 md:p-10 shrink-0 bg-white/50 relative z-30 border-b border-rose-100">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h1 className="font-serif text-5xl md:text-7xl text-rose-900 tracking-tighter leading-none">
+                {t('nav.dashboard')}
+              </h1>
+              <p className="mt-4 text-sm font-medium text-rose-300/80 max-w-md">
+                {t('dashboard.selectModule')}
+              </p>
+            </div>
+            <div className="flex gap-4">
+               {/* Stats or breadcrumbs could go here */}
+            </div>
+          </div>
         </div>
 
-        {/* Content Grid - Scrollable area with NO padding.
-            @container makes the card grid respond to the container's actual
-            width, not the viewport. The Swiss frame is max-w-86rem so on
-            ultra-wide screens the cards no longer over-stretch. */}
+        {/* Content Grid */}
         <div className="@container flex-1 overflow-y-auto overflow-x-hidden relative z-10">
-          <div className="p-[1.5px]">
-            <div className="grid grid-cols-1 @2xl:grid-cols-2 @3xl:grid-cols-3 @5xl:grid-cols-5 bg-black gap-[1px] border-b border-black">
+          <div className="p-6 md:p-8">
+            <div className="grid grid-cols-1 @2xl:grid-cols-2 @3xl:grid-cols-3 @5xl:grid-cols-5 gap-6">
               {children}
             </div>
           </div>
         </div>
 
-        {/* Footer - stays above hovered cards */}
-        <div className="p-4 bg-background flex justify-between items-center font-mono text-xs text-blue-700 border-t border-black shrink-0 relative z-30">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/logo.svg"
-              alt="Resume Matcher"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-            <span className="uppercase font-bold">Resume Matcher</span>
+        {/* Footer */}
+        <div className="p-6 md:px-12 bg-white/60 flex justify-between items-center font-sans text-xs text-rose-400 border-t border-rose-100 shrink-0 relative z-30">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-primary rounded-lg">
+              <Image
+                src="/logo.svg"
+                alt="Resume Matcher"
+                width={16}
+                height={16}
+                className="w-4 h-4 brightness-0 invert"
+              />
+            </div>
+            <span className="uppercase font-bold tracking-widest text-rose-900">ASOZ | CV Eşleştirme</span>
           </div>
           <div className="flex items-center gap-4">
             <Link
               href="/settings"
-              className="bg-warning text-black border border-black px-6 py-2 uppercase font-bold tracking-wide shadow-sw-sm hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-none transition-all min-w-[140px] text-center"
+              className="bg-white text-rose-900 border border-rose-200 px-8 py-3 rounded-full uppercase font-bold tracking-widest shadow-premium-sm hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-0.5 transition-all min-w-[160px] text-center active:scale-95"
             >
               {t('nav.settings')}
             </Link>

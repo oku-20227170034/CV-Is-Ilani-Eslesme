@@ -845,5 +845,39 @@
     "clearApiKeysDescription": "You'll need to re-enter them before using AI features again.",
     "resetDatabase": "Reset everything and start over?",
     "resetDatabaseDescription": "This permanently deletes every resume, job description, and generated document."
+  },
+  "jobMatcher": {
+    "title": "Job Matcher Suggestion System",
+    "subtitle": "Upload your CV to find the best matching jobs",
+    "tabs": {
+      "upload": "Upload CV",
+      "paste": "Paste Text"
+    },
+    "uploadArea": {
+      "title": "Click or Drag your CV file",
+      "subtitle": "PDF or DOCX format",
+      "loading": "Parsing CV..."
+    },
+    "pasteArea": {
+      "placeholder": "Paste your CV content here...",
+      "label": "CV Text"
+    },
+    "positionLabel": "Target Position",
+    "positionPlaceholder": "e.g. Software Developer, Project Manager...",
+    "analyzeButton": "Find Matching Jobs",
+    "analyzing": "Scanning & Analyzing Jobs...",
+    "resultsTitle": "Best Matching Jobs For You",
+    "noResults": "No matching jobs found or analysis failed.",
+    "matchScore": "Match Score",
+    "matchScoreTitle": "{score}% Match",
+    "missingSkills": "Missing Skills",
+    "cvSuggestions": "CV Improvement Suggestions",
+    "showDetails": "Show Details",
+    "hideDetails": "Hide Details",
+    "applyNow": "Go to Job",
+    "ilanNo": "Job No: {no}",
+    "errorOccurred": "An error occurred during analysis.",
+    "matchingSkills": "Matching Skills",
+    "noMatchingSkills": "No matching skills found."
   }
 }

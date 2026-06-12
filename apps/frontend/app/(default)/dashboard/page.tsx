@@ -1,6 +1,7 @@
 'use client';
 
 import { SwissGrid } from '@/components/home/swiss-grid';
+import { JobMatcherModule } from '@/components/dashboard/job-matcher-module';
 import { ResumeUploadDialog } from '@/components/dashboard/resume-upload-dialog';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
@@ -66,7 +67,7 @@ export default function DashboardPage() {
     if (Number.isNaN(date.getTime())) return t('common.unknown');
 
     const dateLocale =
-      locale === 'es' ? 'es-ES' : locale === 'zh' ? 'zh-CN' : locale === 'ja' ? 'ja-JP' : 'en-US';
+      locale === 'es' ? 'es-ES' : locale === 'zh' ? 'zh-CN' : locale === 'ja' ? 'ja-JP' : locale === 'tr' ? 'tr-TR' : 'en-US';
 
     return date.toLocaleDateString(dateLocale, {
       month: 'short',
@@ -236,24 +237,24 @@ export default function DashboardPage() {
         return {
           text: t('dashboard.status.checking'),
           icon: <Loader2 className="w-3 h-3 animate-spin" />,
-          color: 'text-steel-grey',
+          color: 'text-rose-400',
         };
       case 'processing':
         return {
           text: t('dashboard.status.processing'),
           icon: <Loader2 className="w-3 h-3 animate-spin" />,
-          color: 'text-blue-700',
+          color: 'text-primary',
         };
       case 'ready':
-        return { text: t('dashboard.status.ready'), icon: null, color: 'text-green-700' };
+        return { text: t('dashboard.status.ready'), icon: null, color: 'text-emerald-600' };
       case 'failed':
         return {
           text: t('dashboard.status.failed'),
           icon: <AlertCircle className="w-3 h-3" />,
-          color: 'text-red-600',
+          color: 'text-rose-700',
         };
       default:
-        return { text: t('dashboard.status.pending'), icon: null, color: 'text-steel-grey' };
+        return { text: t('dashboard.status.pending'), icon: null, color: 'text-rose-300' };
     }
   };
 
@@ -265,16 +266,16 @@ export default function DashboardPage() {
       .join('');
   };
 
-  // Muted palette that complements the #F0F0E8 canvas
+  // Premium Rose Palette
   const cardPalette = [
-    { bg: '#1D4ED8', fg: '#FFFFFF' }, // Hyper Blue
-    { bg: '#15803D', fg: '#FFFFFF' }, // Signal Green
-    { bg: '#000000', fg: '#FFFFFF' }, // Ink
-    { bg: '#92400E', fg: '#FFFFFF' }, // Warm Brown
-    { bg: '#7C3AED', fg: '#FFFFFF' }, // Violet
-    { bg: '#0E7490', fg: '#FFFFFF' }, // Teal
-    { bg: '#B91C1C', fg: '#FFFFFF' }, // Deep Red
-    { bg: '#4338CA', fg: '#FFFFFF' }, // Indigo
+    { bg: '#e0a0a0', fg: '#FFFFFF' }, // Muted Rose
+    { bg: '#f4dada', fg: '#4a3a3a' }, // Light Pink
+    { bg: '#d4af37', fg: '#FFFFFF' }, // Gold
+    { bg: '#ff8787', fg: '#FFFFFF' }, // Soft Red
+    { bg: '#a08080', fg: '#FFFFFF' }, // Warm Brown
+    { bg: '#fdf8f8', fg: '#4a3a3a' }, // Soft Blush
+    { bg: '#ffc9c9', fg: '#4a3a3a' }, // Pastel Pink
+    { bg: '#4a3a3a', fg: '#FFFFFF' }, // Dark Warm
   ];
 
   const hashTitle = (title: string): number => {
@@ -291,7 +292,7 @@ export default function DashboardPage() {
   const extraFillerCount = 5;
   // Use Tailwind classes for fillers now that we have them in config or use specific hex if needed
   // Using the hex values from before to maintain exact look, or we could map them to variants
-  const fillerPalette = ['bg-secondary', 'bg-[#D8D8D2]', 'bg-[#CFCFC7]', 'bg-[#E0E0D8]'];
+  const fillerPalette = ['bg-rose-50/50', 'bg-rose-100/30', 'bg-white/50', 'bg-secondary/40'];
 
   return (
     <div className="space-y-6">
@@ -319,6 +320,9 @@ export default function DashboardPage() {
       )}
 
       <SwissGrid>
+        {/* CV to Job Matcher Module */}
+        <JobMatcherModule />
+        
         {/* 1. Master Resume Logic */}
         {!masterResumeId ? (
           // LLM Not Configured or Upload State
@@ -357,21 +361,12 @@ export default function DashboardPage() {
               trigger={
                 <Card
                   variant="interactive"
-                  className="aspect-square h-full hover:bg-primary hover:text-canvas"
+                  className="aspect-square h-full hover:bg-primary hover:text-white border-dashed border-2 border-rose-200 group rounded-2xl bg-rose-50/30"
                 >
-                  <div className="flex-1 flex flex-col justify-between pointer-events-none">
-                    <div className="w-14 h-14 border-2 border-current flex items-center justify-center mb-4">
-                      <span className="text-2xl leading-none relative top-[-2px]">+</span>
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl uppercase">
-                        {t('dashboard.initializeMasterResume')}
-                      </CardTitle>
-                      <CardDescription className="mt-2 opacity-60 group-hover:opacity-100 text-current">
-                        {'// '}
-                        {t('dashboard.initializeSequence')}
-                      </CardDescription>
-                    </div>
+                  <div className="flex-1 flex flex-col items-center justify-center p-6 h-full text-center">
+                    <CardTitle className="text-2xl font-serif font-bold group-hover:text-white transition-colors leading-[1.2]">
+                      {t('dashboard.initializeMasterResume')}
+                    </CardTitle>
                   </div>
                 </Card>
               }
@@ -381,72 +376,13 @@ export default function DashboardPage() {
           // Master Resume Exists
           <Card
             variant="interactive"
-            className="aspect-square h-full"
+            className="aspect-square h-full border-rose-200 shadow-premium-md hover:shadow-premium-xl transition-all duration-300 rounded-2xl"
             onClick={() => router.push(`/resumes/${masterResumeId}`)}
           >
-            <div className="flex-1 flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
-                <div className="w-16 h-16 border-2 border-black bg-blue-700 text-white flex items-center justify-center">
-                  <span className="font-mono font-bold text-lg">M</span>
-                </div>
-                <div className="flex gap-1">
-                  {(processingStatus === 'failed' || processingStatus === 'processing') && (
-                    <>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8 hover:bg-blue-100 hover:text-blue-700 z-10 rounded-none relative"
-                        onClick={handleRetryProcessing}
-                        disabled={isRetrying}
-                        aria-label={t('dashboard.retryProcessing')}
-                        title={t('dashboard.retryProcessing')}
-                      >
-                        {isRetrying ? (
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                        ) : (
-                          <RefreshCw className="w-4 h-4" />
-                        )}
-                      </Button>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <CardTitle className="text-lg group-hover:text-primary">
+            <div className="flex-1 flex flex-col items-center justify-center h-full p-6 text-center">
+              <CardTitle className="text-2xl font-serif font-bold group-hover:text-primary transition-colors leading-[1.2]">
                 {t('dashboard.masterResume')}
               </CardTitle>
-
-              <div
-                className={`text-xs font-mono mt-auto pt-4 flex flex-col gap-2 uppercase ${getStatusDisplay().color}`}
-              >
-                <div className="flex items-center gap-1">
-                  {getStatusDisplay().icon}
-                  {t('dashboard.statusLine', { status: getStatusDisplay().text })}
-                </div>
-                {(processingStatus === 'failed' || processingStatus === 'processing') && (
-                  <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="text-xs h-7 rounded-none border-black"
-                      onClick={handleRetryProcessing}
-                      disabled={isRetrying}
-                    >
-                      {isRetrying
-                        ? t('dashboard.retryingProcessing')
-                        : t('dashboard.retryProcessing')}
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="text-xs h-7 rounded-none border-red-600 text-red-600 hover:bg-red-50"
-                      onClick={handleDeleteAndReupload}
-                    >
-                      {t('dashboard.deleteAndReupload')}
-                    </Button>
-                  </div>
-                )}
-              </div>
             </div>
           </Card>
         )}
@@ -455,75 +391,36 @@ export default function DashboardPage() {
         {tailoredResumes.map((resume) => {
           const title =
             resume.title || resume.jobSnippet || resume.filename || t('dashboard.tailoredResume');
-          const color = cardPalette[hashTitle(title) % cardPalette.length];
           return (
             <Card
               key={resume.resume_id}
               variant="interactive"
-              className="aspect-square h-full bg-canvas"
+              className="aspect-square h-full group border-rose-200 shadow-premium-sm hover:shadow-premium-lg transition-all duration-300 rounded-2xl"
               onClick={() => router.push(`/resumes/${resume.resume_id}`)}
             >
-              <div className="flex-1 flex flex-col">
-                <div className="flex justify-between items-start mb-6">
-                  <div
-                    className="w-12 h-12 border-2 border-black flex items-center justify-center"
-                    style={{ backgroundColor: color.bg, color: color.fg }}
-                  >
-                    <span className="font-mono font-bold">{getMonogram(title)}</span>
-                  </div>
-                  <span className="font-mono text-xs text-steel-grey uppercase">
-                    {resume.processing_status}
-                  </span>
-                </div>
-                <CardTitle className="text-lg">
-                  <span className="block font-serif text-base font-bold leading-tight mb-1 w-full line-clamp-2">
-                    {title}
-                  </span>
+              <div className="flex-1 flex flex-col items-center justify-center h-full p-6 text-center">
+                <CardTitle className="text-2xl font-serif font-bold group-hover:text-rose-700 transition-colors line-clamp-3 leading-[1.1]">
+                  {title}
                 </CardTitle>
-                <CardDescription className="mt-auto pt-4 uppercase">
-                  {t('dashboard.edited', {
-                    date: formatDate(resume.updated_at || resume.created_at),
-                  })}{' '}
-                </CardDescription>
               </div>
             </Card>
           );
         })}
 
         {/* 3. Create Tailored Resume */}
-        <Card className="aspect-square h-full" variant="default">
-          <div className="flex-1 flex flex-col items-center justify-center text-center h-full">
-            <Button
-              onClick={() => router.push('/tailor')}
-              disabled={!isTailorEnabled}
-              className="w-20 h-20 bg-blue-700 text-white border-2 border-black shadow-sw-default hover:bg-blue-800 hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all rounded-none"
-            >
-              <Plus className="w-8 h-8" />
-            </Button>
-            <p className="text-xs font-mono mt-4 uppercase text-green-700">
-              {t('dashboard.createResume')}
-            </p>
-          </div>
-        </Card>
-
-        {/* 4. Fillers */}
-        {Array.from({ length: fillerCount }).map((_, index) => (
+        <Link href="/builder" className="block h-full">
           <Card
-            key={`filler-${index}`}
-            variant="ghost"
-            noPadding
-            className="hidden md:block bg-canvas aspect-square h-full opacity-50 pointer-events-none"
-          />
-        ))}
+            variant="interactive"
+            className="aspect-square h-full border-dashed border-2 border-rose-200 bg-rose-50/20 rounded-2xl group cursor-pointer"
+          >
+            <div className="flex-1 flex flex-col items-center justify-center text-center h-full p-6">
+              <CardTitle className="text-2xl font-serif font-bold group-hover:text-primary transition-colors leading-[1.2]">
+                {t('dashboard.createResume')}
+              </CardTitle>
+            </div>
+          </Card>
+        </Link>
 
-        {Array.from({ length: extraFillerCount }).map((_, index) => (
-          <Card
-            key={`extra-filler-${index}`}
-            variant="ghost"
-            noPadding
-            className={`hidden md:block ${fillerPalette[index % fillerPalette.length]} aspect-square h-full opacity-70 pointer-events-none`}
-          />
-        ))}
 
         <ConfirmDialog
           open={showDeleteDialog}

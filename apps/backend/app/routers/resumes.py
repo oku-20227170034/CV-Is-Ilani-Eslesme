@@ -502,22 +502,29 @@ ALLOWED_TYPES = {
     "application/pdf",
     "application/msword",
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    # Görsel formatlar — Kreuzberg OCR ile işlenir
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/bmp",
+    "image/tiff",
 }
 MAX_FILE_SIZE = 4 * 1024 * 1024  # 4MB
 
 
 @router.post("/upload", response_model=ResumeUploadResponse)
 async def upload_resume(file: UploadFile = File(...)) -> ResumeUploadResponse:
-    """Upload and process a resume file (PDF/DOCX).
+    """Upload and process a resume file (PDF, DOCX, or image).
 
-    Converts the file to Markdown and stores it in the database.
+    Converts the file to Markdown/text and stores it in the database.
+    Image files (PNG, JPG, WEBP, BMP, TIFF) are processed with Kreuzberg OCR.
     Optionally parses to structured JSON if LLM is configured.
     """
     # Validate file type
     if file.content_type not in ALLOWED_TYPES:
         raise HTTPException(
             status_code=400,
-            detail=f"Invalid file type: {file.content_type}. Allowed: PDF, DOC, DOCX",
+            detail=f"Invalid file type: {file.content_type}. Allowed: PDF, DOC, DOCX, PNG, JPG, WEBP, BMP, TIFF",
         )
 
     # Read and validate size

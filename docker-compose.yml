@@ -1,6 +1,6 @@
 services:
   resume-matcher:
-    image: ghcr.io/srbhr/resume-matcher
+    image: resume-matcher
     build: .
     container_name: resume-matcher
     ports:
@@ -28,7 +28,6 @@ services:
       - LLM_API_KEY=${LLM_API_KEY:-}
       # For Ollama running on host machine, use host.docker.internal:
       # - LLM_API_BASE=http://host.docker.internal:11434
-      - LLM_API_BASE=${LLM_API_BASE:-}
       # CORS origins (JSON array format). FRONTEND_BASE_URL is auto-included.
       #- CORS_ORIGINS=["http://localhost:3000","http://127.0.0.1:3000"]
     restart: unless-stopped

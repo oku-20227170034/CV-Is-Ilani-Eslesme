@@ -123,10 +123,10 @@ async def update_llm_config(
         stored["provider"] = request.provider
     if request.model is not None:
         stored["model"] = request.model
-    if request.api_key is not None:
-        stored["api_key"] = request.api_key
-    if request.api_base is not None:
-        stored["api_base"] = request.api_base
+    if "api_key" in request.model_fields_set:
+        stored["api_key"] = request.api_key or ""
+    if "api_base" in request.model_fields_set:
+        stored["api_base"] = request.api_base or ""
 
     # Build normalized config for response and background health check
     resolved_provider = stored.get("provider", settings.llm_provider)
@@ -221,7 +221,7 @@ async def update_feature_config(request: FeatureConfigRequest) -> FeatureConfigR
 
 
 # Supported languages for i18n
-SUPPORTED_LANGUAGES = ["en", "es", "zh", "ja", "pt"]
+SUPPORTED_LANGUAGES = ["tr", "en", "es", "zh", "ja", "pt"]
 
 
 @router.get("/language", response_model=LanguageConfigResponse)

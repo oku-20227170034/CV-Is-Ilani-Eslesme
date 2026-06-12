@@ -4,8 +4,14 @@
 @source "../../../{app,components,hooks,lib,messages}/**/*.{js,ts,jsx,tsx,mdx}";
 
 @theme inline {
-  /* No --radius-* tokens — Swiss style commits to rounded-none everywhere.
-     Dead tokens removed. */
+  /* Premium Rounded Corners */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -24,47 +30,29 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Swiss Style brand tokens. --color-primary, --color-destructive,
-     --color-secondary, --color-background already exist above via the
-     legacy var(--xxx) chain — these are only the additional brand
-     semantics that didn't exist as @theme tokens before. */
-  --color-canvas: #f0f0e8;
-  --color-ink: #000000;
-  --color-success: #15803d;
-  --color-warning: #f97316;
+  /* Brand Colors */
+  --color-rose-50: #fff5f5;
+  --color-rose-100: #ffe3e3;
+  --color-rose-200: #ffc9c9;
+  --color-rose-300: #ffa8a8;
+  --color-rose-400: #ff8787;
+  --color-rose-500: #ff6b6b;
+  --color-rose-600: #fa5252;
+  --color-rose-700: #f03e3e;
+  --color-rose-800: #e03131;
+  --color-rose-900: #c92a2a;
 
-  /* Brand-tinted neutrals (OKLCH, chroma tinted ~0.005-0.018 toward
-     Hyper Blue hue 264) — replace ad-hoc Tailwind grays. */
-  --color-paper-tint: oklch(96% 0.005 264);   /* replaces gray-50/100/200 */
-  --color-steel-grey: oklch(64% 0.012 264);   /* replaces gray-300/400/500 */
-  --color-ink-soft: oklch(38% 0.018 264);     /* replaces gray-600/700/800/900 */
-
-  /* Hard offset shadows in solid ink — Swiss style commits to no blur.
-     Sized small (1px) through xl (12px) for Hero/featured surfaces. */
-  --shadow-sw-xs: 1px 1px 0px 0px #000000;
-  --shadow-sw-sm: 2px 2px 0px 0px #000000;
-  --shadow-sw-default: 4px 4px 0px 0px #000000;
-  --shadow-sw-card: 6px 6px 0px 0px #000000;
-  --shadow-sw-lg: 8px 8px 0px 0px #000000;
-  --shadow-sw-xl: 12px 12px 0px 0px #000000;
+  /* Premium Shadows */
+  --shadow-premium-sm: 0 2px 4px rgba(224, 160, 160, 0.1);
+  --shadow-premium-md: 0 4px 12px rgba(224, 160, 160, 0.15);
+  --shadow-premium-lg: 0 12px 24px rgba(224, 160, 160, 0.2);
+  --shadow-premium-xl: 0 20px 40px rgba(224, 160, 160, 0.25);
 
   /* Fonts */
-  --font-sans: 'Geist Sans', sans-serif;
-  --font-mono: 'Space Grotesk', monospace;
+  --font-sans: var(--font-michroma), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-michroma), ui-serif, Georgia, serif;
+  --font-mono: var(--font-michroma), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Animations */
   --animate-gradient: gradient 8s linear infinite;
@@ -77,52 +65,51 @@
 }
 
 :root {
-  --font-mono: 'Geist Mono', monospace;
-  --font-sans: 'Geist', sans-serif;
+  /* Rose/Pink Premium Palette */
+  --background: #fdf2f2; /* Deeper Soft Rose */
+  --foreground: #4a3a3a; /* Warm Dark Brown */
 
-  /* Swiss International Style Palette */
-  --background: #f0f0e8; /* Canvas */
-  --foreground: #000000; /* Ink */
+  --card: #ffffff;
+  --card-foreground: #4a3a3a;
 
-  --card: #f0f0e8;
-  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #4a3a3a;
 
-  --popover: #f0f0e8;
-  --popover-foreground: #000000;
-
-  --primary: #1d4ed8; /* Hyper Blue */
+  --primary: #e0a0a0; /* Muted Rose */
   --primary-foreground: #ffffff;
 
-  --secondary: #e5e5e0; /* Panel Grey */
-  --secondary-foreground: #000000;
+  --secondary: #f4dada; /* Light Pink */
+  --secondary-foreground: #4a3a3a;
 
-  --muted: #e5e5e0;
-  --muted-foreground: #6b7280;
+  --muted: #f4dada;
+  --muted-foreground: #a08080;
 
-  --accent: #e5e5e0;
-  --accent-foreground: #000000;
+  --accent: #f4dada;
+  --accent-foreground: #4a3a3a;
 
-  --destructive: #dc2626; /* Alert Red */
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
 
-  --border: #000000;
-  --input: #f0f0e8;
-  --ring: #1d4ed8;
+  --border: #eecaca;
+  --input: #ffffff;
+  --ring: #e0a0a0;
 
-  --chart-1: #1d4ed8;
-  --chart-2: #15803d;
-  --chart-3: #f97316;
+  --chart-1: #e0a0a0;
+  --chart-2: #d4af37;
+  --chart-3: #ff6b6b;
   --chart-4: #dc2626;
-  --chart-5: #000000;
+  --chart-5: #4a3a3a;
 
-  --sidebar: #e5e5e0;
-  --sidebar-foreground: #000000;
-  --sidebar-primary: #1d4ed8;
+  --sidebar: #fdf8f8;
+  --sidebar-foreground: #4a3a3a;
+  --sidebar-primary: #e0a0a0;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #d8d8d2;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: #000000;
-  --sidebar-ring: #1d4ed8;
+  --sidebar-accent: #f4dada;
+  --sidebar-accent-foreground: #4a3a3a;
+  --sidebar-border: #eecaca;
+  --sidebar-ring: #e0a0a0;
+
+  --radius: 12px;
 }
 
 /* Light theme only — Swiss/Brutalist works on the warm Canvas background.

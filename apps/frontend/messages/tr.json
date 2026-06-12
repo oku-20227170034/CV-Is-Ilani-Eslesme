@@ -1,0 +1,899 @@
+{
+  "common": {
+    "save": "Kaydet",
+    "saving": "Kaydediliyor...",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "download": "İndir",
+    "loading": "Yükleniyor...",
+    "uploading": "Yükleniyor...",
+    "checking": "Kontrol ediliyor...",
+    "processing": "İşleniyor...",
+    "generating": "Oluşturuluyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "confirm": "Onayla",
+    "back": "Geri",
+    "retry": "Tekrar Dene",
+    "next": "İleri",
+    "continue": "Devam Et",
+    "finish": "Bitir",
+    "optional": "İsteğe Bağlı",
+    "close": "Kapat",
+    "ok": "Tamam",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "reset": "Sıfırla",
+    "apply": "Uygula",
+    "selectOption": "Bir seçenek belirleyin...",
+    "unknown": "Bilinmiyor",
+    "keysCleared": "API anahtarları başarıyla temizlendi",
+    "databaseReset": "Veritabanı başarıyla sıfırlandı",
+    "popupBlocked": "Açılır pencere engellendi. Lütfen açılır pencerelere izin verin veya bu adresi manuel olarak açın: {url}"
+  },
+  "home": {
+    "brandLine1": "ASOZ |",
+    "brandLine2": "CV Eşleştirme",
+    "docs": "Dokümanlar",
+    "launchApp": "Uygulamayı Başlat"
+  },
+  "nav": {
+    "dashboard": "ASOZ Kariyer Portalı",
+    "builder": "CV Oluşturucu",
+    "tailor": "CV Uyarla",
+    "settings": "Ayarlar",
+    "backToDashboard": "Kontrol Paneline Dön",
+    "goToSettings": "Ayarlara Git"
+  },
+  "dashboard": {
+    "title": "Kontrol Paneli",
+    "subtitle": "Özgeçmişlerinizi ve iş başvurularınızı yönetin",
+    "myResumes": "Özgeçmişlerim",
+    "noResumes": "Henüz özgeçmiş yok",
+    "noResumesDescription": "Başlamak için ilk özgeçmişinizi yükleyin",
+    "uploadResume": "Özgeçmiş Yükle",
+    "createNew": "Yeni Oluştur",
+    "lastModified": "Son değiştirilme",
+    "actions": "İşlemler",
+    "preview": "Önizleme",
+    "viewResume": "Özgeçmişi Görüntüle",
+    "editResume": "Özgeçmişi Düzenle",
+    "deleteResume": "Özgeçmişi Sil",
+    "downloadPdf": "PDF İndir",
+    "tailorResume": "İş İçin Uyarla",
+    "selectModule": "Size özel hazırladığımız kariyer araçlarından birini seçerek devam edebilirsiniz.",
+    "masterResume": "Ana Özgeçmiş",
+    "tailoredResume": "Uyarlanmış Özgeçmiş",
+    "initializeMasterResume": "Ana Özgeçmişi Başlat",
+    "initializeSequence": "Başlatma Dizisi",
+    "refreshStatus": "Durumu yenile",
+    "retryProcessing": "İşlemi Tekrar Dene",
+    "retryingProcessing": "Tekrar deneniyor...",
+    "deleteAndReupload": "Sil & Yeniden Yükle",
+    "processingFailedHint": "Bu dosya okunamadı. Tekrar deneyin veya farklı bir dosya yükleyin.",
+    "retrySuccess": "İşlem başarılı!",
+    "retryFailed": "Tekrar deneme başarısız oldu. Farklı bir dosya yüklemeyi deneyin.",
+    "createResume": "Özgeçmiş Oluştur",
+    "edited": "Düzenlendi {date}",
+    "statusLine": "DURUM: {status}",
+    "status": {
+      "checking": "Kontrol ediliyor...",
+      "processing": "İşleniyor...",
+      "ready": "Hazır",
+      "failed": "İşlem başarısız",
+      "pending": "Bekliyor"
+    },
+    "llmNotConfiguredTitle": "[ LLM YAPILANDIRILMADI ]",
+    "llmNotConfiguredMessage": "> API anahtarları eksik. Ayarlardan yapılandırılana kadar CV uyarlama devre dışı.",
+    "setupRequiredTitle": "[ KURULUM GEREKLİ ]",
+    "setupRequiredMessage": "> CV uyarlamayı etkinleştirmek için ayarlardan API anahtarını yapılandırın.",
+    "uploadDialog": {
+      "success": "Özgeçmiş başarıyla yüklendi.",
+      "successMaster": "Özgeçmiş yüklendi ve ana CV olarak ayarlandı.",
+      "successMissingId": "Upload succeeded but no Resume ID returned.",
+      "parsingFailed": "Özgeçmiş yüklendi ancak yapay zeka ayrıştırması başarısız oldu.",
+      "failed": "Yükleme başarısız.",
+      "dropzoneTitle": "Dosyaya Tıklayın veya Sürükleyin",
+      "dropzoneSubtitle": "PDF, DOC, DOCX (Maks 4MB)",
+      "tryDifferentFile": "Farklı Dosya Dene",
+      "parsingFailedKeepOpen": "Yapay zeka ayrıştırması başarısız. Farklı bir dosya deneyin veya kapatın."
+    }
+  },
+  "builder": {
+    "title": "CV Oluşturucu",
+    "editMode": "Düzenleme Modu",
+    "previewMode": "Önizleme Modu",
+    "createAndPreview": "Oluştur ve Önizle",
+    "unsavedDraft": "Kaydedilmemiş Taslak",
+    "personalInfo": "Kişisel Bilgiler",
+    "summary": "Özet",
+    "experience": "Deneyim",
+    "education": "Eğitim",
+    "skills": "Yetenekler",
+    "projects": "Projeler",
+    "certifications": "Sertifikalar",
+    "languages": "Diller",
+    "awards": "Ödüller",
+    "addSection": "Bölüm Ekle",
+    "removeSection": "Bölümü Kaldır",
+    "saveChanges": "Değişiklikleri Kaydet",
+    "discardChanges": "Değişiklikleri Geri Al",
+    "placeholders": {
+      "summary": "Profesyonel geçmişinizi kısaca açıklayın..."
+    },
+    "contentStats": {
+      "wordsChars": "{wordCount} kelime / {charCount} karakter"
+    },
+    "additionalForm": {
+      "instructions": "Öğeleri yeni satırlarla ayırarak girin (her öğe için Enter tuşuna basın).",
+      "placeholders": {
+        "technicalSkills": "React\nTypeScript\nNode.js",
+        "languages": "İngilizce\nAlmanca",
+        "certifications": "AWS Çözüm Mimarı\nGoogle Analytics",
+        "awards": "Ayın Çalışanı\nHackathon Kazananı"
+      }
+    },
+    "customSections": {
+      "dialogTitle": "Özel Bölüm Ekle",
+      "dialogDescription": "Özel bir isim ve türle özgeçmişiniz için yeni bir bölüm oluşturun.",
+      "sectionNameLabel": "Bölüm Adı",
+      "sectionNamePlaceholder": "örneğin, Yayınlar, Gönüllü Çalışmalar, Sertifikalar",
+      "sectionTypeLabel": "Bölüm Türü",
+      "addCustomSectionButton": "Özel Bölüm Ekle",
+      "sectionTypes": {
+        "textBlockLabel": "Metin Bloğu",
+        "textBlockDescription": "Tek metin alanı (Özet gibi)",
+        "itemListLabel": "Öğe Listesi",
+        "itemListDescription": "Ayrıntıları içeren birden fazla giriş (Deneyim gibi)",
+        "stringListLabel": "Yetenek Listesi",
+        "stringListDescription": "Öğelerin basit listesi (Yetenekler gibi)"
+      },
+      "contentLabel": "İçerik",
+      "contentPlaceholder": "{name} için içerik girin...",
+      "defaultTextPlaceholder": "Metin içeriğini girin...",
+      "entryLabel": "Giriş",
+      "addEntryLabel": "Giriş Ekle",
+      "itemsLabel": "Öğeler",
+      "itemsPlaceholder": "Her satıra bir öğe girin",
+      "unknownSectionType": "Bilinmeyen bölüm türü: {type}",
+      "unknownDefaultSection": "Bilinmeyen varsayılan bölüm: {section}"
+    },
+    "sectionHeader": {
+      "renameSection": "Bölümü yeniden adlandır",
+      "customTag": "Özel",
+      "hiddenFromPdfTag": "PDF'den gizlendi",
+      "hideSection": "Bölümü gizle",
+      "showSection": "Bölümü göster",
+      "moveUp": "Yukarı taşı",
+      "moveDown": "Aşağı taşı",
+      "deleteSection": "Bölümü sil",
+      "deleteTitle": "Bölümü Sil",
+      "deleteDescription": "\"{name}\" bölümünü silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+    },
+    "previewTabs": {
+      "resume": "ÖZGEÇMİŞ",
+      "coverLetter": "ÖN YAZI",
+      "outreach": "İLETİŞİM MAİLİ",
+      "jdMatch": "İLAN UYUMU"
+    },
+    "footer": {
+      "moduleLabel": "Özgeçmiş Oluşturucu Modülü",
+      "singleColumn": "Tek Sütun",
+      "twoColumn": "İki Sütun"
+    },
+    "pageSize": {
+      "usLetter": "US Letter (A4)"
+    },
+    "generatePrompt": {
+      "notAvailableTitle": "{title} Mevcut Değil",
+      "notAvailableDescription": "{title} oluşturmak için önce özgeçmişinizi bir iş ilanıyla uyarlayın.",
+      "goToDashboard": "Kontrol Paneline Git",
+      "generateTitle": "{title} Oluştur",
+      "coverLetterDescription": "Özgeçmişinize ve iş tanımına dayalı özel bir ön yazı oluşturun.",
+      "outreachDescription": "Özgeçmişinize ve iş tanımına dayalı LinkedIn veya e-posta için kısa bir iletişim mesajı oluşturun.",
+      "generateButton": "{title} Oluştur",
+      "coverLetterFooter": "İpucu: En iyi sonuçlar için önce uyarlayın.",
+      "outreachFooter": "İpucu: Kısa ve kişisel tutun."
+    },
+    "regenerateDialog": {
+      "title": "{title} Yeniden Oluşturulsun mu?",
+      "description": "Bu, mevcut {title} dosyanızı yeni oluşturulan bir dosyayla değiştirecektir. Yaptığınız tüm düzenlemeler kaybolacaktır."
+    },
+    "regenerate": {
+      "buttonLabel": "Yapay Zeka ile Yeniden Oluştur",
+      "selectDialog": {
+        "title": "Yeniden Oluşturulacak Öğeleri Seçin",
+        "subtitle": "Özgeçmişinizin hangi bölümlerini geliştirmek istediğinizi seçin",
+        "experience": "İş Deneyimi",
+        "projects": "Projeler",
+        "skills": "Teknik Yetenekler",
+        "noItemsSelected": "Lütfen en az bir öğe seçin",
+        "noItemsAvailable": "Yeniden oluşturulacak öğe bulunamadı. Önce deneyim, proje veya yetenek ekleyin.",
+        "itemCount": {
+          "one": "{count} öğe",
+          "other": "{count} öğe"
+        },
+        "continueButton": "Devam Et"
+      },
+      "instructionDialog": {
+        "title": "Neyi Geliştirmek İstersiniz?",
+        "subtitle": "Yapay zekayı yönlendirmek için özel geri bildirim sağlayın",
+        "defaultInstruction": "Varsa güçlü eylem fiilleri ve ölçülebilir etki ile içeriği geliştirin.",
+        "selectedItems": "Seçili Öğeler",
+        "placeholder": "Örnek: Daha fazla ölçülebilir metrik ekleyin, liderlik becerilerini vurgulayın, daha fazla eylem fiili kullanın...",
+        "hint": "Neden memnun olmadığınız konusunda spesifik olun",
+        "backButton": "Geri",
+        "generateButton": "Oluştur"
+      },
+      "diffPreview": {
+        "title": "Değişiklikleri Önizle",
+        "subtitle": "Uygulamadan önce yeniden oluşturulan içeriği inceleyin",
+        "expandItem": "{item} Genişlet",
+        "collapseItem": "{item} Daralt",
+        "partialFailures": "Bazı öğeler yeniden oluşturulamadı ({count}). Başarılı olanları hala inceleyebilir ve uygulayabilirsiniz.",
+        "changesCount": "{count} öğe değiştirildi",
+        "rejectButton": "Reddet ve Yeniden Oluştur",
+        "acceptButton": "Değişiklikleri Kabul Et",
+        "originalLabel": "Orijinal",
+        "newLabel": "Yeni",
+        "noContent": "İçerik yok",
+        "applying": "Uygulanıyor...",
+        "loading": "Geliştirilmiş içerik oluşturuluyor..."
+      },
+      "errors": {
+        "generationFailed": "İçerik oluşturulamadı. Lütfen tekrar deneyin.",
+        "applyFailed": "Değişiklikler uygulanamadı. Lütfen tekrar deneyin.",
+        "resumeChanged": "Yeniden oluşturmadan bu yana özgeçmiş içeriği değişti. Lütfen yeniden oluşturun ve tekrar deneyin.",
+        "noChangesToApply": "Uygulanacak değişiklik yok.",
+        "networkError": "Ağ hatası. Lütfen bağlantınızı kontrol edin."
+      }
+    },
+    "jdMatch": {
+      "yourResume": "Özgeçmişiniz",
+      "matchingKeywordsHighlighted": "(eşleşen anahtar kelimeler vurgulandı)",
+      "jobDescriptionTitle": "İş Tanımı",
+      "at": "-",
+      "atSeparator": " - ",
+      "roleSeparator": "-",
+      "aboutTitle": "İlan Uyum Analizi Hakkında",
+      "aboutDescription": "Bu görünüm, özgeçmişinizin iş tanımıyla ne kadar iyi eşleştiğini gösterir. İş tanımındaki anahtar kelimeler özgeçmişinizde sarı ile vurgulanarak, hangi beceri ve terimlerin zaten kapsandığını görmenize yardımcı olur.",
+      "highlightedKeywordsTitle": "Vurgulanan Anahtar Kelimeler",
+      "highlightedKeywordsDescriptionTemplate": "__COLOR__ ile vurgulanan kelimeler hem iş tanımında hem de özgeçmişinizde yer almaktadır. Daha yüksek bir eşleşme oranı, iş gereksinimleriyle daha iyi uyum sağladığınızı gösterir.",
+      "highlightedKeywordsDescriptionPrefix": "Şu renkle vurgulanan kelimeler:",
+      "highlightColor": "sarı",
+      "highlightedKeywordsDescriptionSuffix": "hem iş tanımında hem de özgeçmişinizde yer almaktadır. Daha yüksek bir eşleşme oranı, iş gereksinimleriyle daha iyi uyum sağladığınızı gösterir.",
+      "tipsTitle": "İpuçları",
+      "tips": {
+        "items": {
+          "addMissingKeywords": "Eksik anahtar kelimeleri eklemek için Özgeçmiş sekmesini kullanın",
+          "focusTechnicalSkills": "İş tanımında belirtilen teknik becerilere ve araçlara odaklanın",
+          "matchActionVerbs": "İş gereksinimlerindeki eylem fiilleriyle eşleşin"
+        }
+      },
+      "stats": {
+        "keywordsExtracted": "{count} anahtar kelime çıkarıldı",
+        "matchesFound": "{count} eşleşme bulundu",
+        "matchRateLabel": "Eşleşme Oranı:"
+      }
+    },
+    "genericItemForm": {
+      "itemLabel": "Öğe",
+      "addItemLabel": "{label} Ekle",
+      "fields": {
+        "title": "Başlık",
+        "organization": "Kurum/Şirket",
+        "location": "Konum",
+        "years": "Yıllar",
+        "descriptionPoints": "Açıklama Maddeleri"
+      },
+      "actions": {
+        "addPoint": "Madde Ekle"
+      },
+      "placeholders": {
+        "title": "Başlık",
+        "organization": "Kurum/Şirket",
+        "location": "Konum",
+        "years": "Oca 2020 - Günümüz",
+        "description": "Katkılarınızı açıklayın..."
+      },
+      "noEntries": "// {label} GİRİŞİ YOK",
+      "addFirstItem": "İlk {label} Öğesini Ekle"
+    },
+    "forms": {
+      "experience": {
+        "addJob": "İş Ekle",
+        "addFirstJob": "İlk İşi Ekle",
+        "fields": {
+          "jobTitle": "İş Unvanı",
+          "company": "Şirket"
+        },
+        "placeholders": {
+          "jobTitle": "Kıdemli Geliştirici",
+          "company": "Teknoloji A.Ş.",
+          "location": "Uzaktan / Şehir",
+          "years": "Oca 2020 - Günümüz",
+          "description": "Başarılarınızı açıklayın..."
+        }
+      },
+      "education": {
+        "addSchool": "Okul Ekle",
+        "addFirstSchool": "İlk Okulu Ekle",
+        "fields": {
+          "institution": "Kurum",
+          "degree": "Derece/Bölüm",
+          "description": "Açıklama",
+          "descriptionOptional": "Açıklama (İsteğe Bağlı)"
+        },
+        "placeholders": {
+          "institution": "Üniversite Adı",
+          "degree": "Lisans / Yüksek Lisans",
+          "years": "Ağu 2016 - May 2020",
+          "description": "Ek detaylar..."
+        }
+      },
+      "projects": {
+        "addProject": "Proje Ekle",
+        "addFirstProject": "İlk Projeyi Ekle",
+        "fields": {
+          "projectName": "Proje Adı",
+          "role": "Rol",
+          "website": "Web Sitesi"
+        },
+        "placeholders": {
+          "projectName": "Resume Matcher",
+          "role": "Yaratıcı",
+          "years": "Mar 2023",
+          "github": "github.com/kullanici/proje",
+          "website": "https://proje-demo.com",
+          "description": "Proje detayı..."
+        }
+      }
+    },
+    "formatting": {
+      "panelTitle": "Şablon ve Biçimlendirme",
+      "template": "Şablon",
+      "templates": {
+        "swissSingle": {
+          "name": "Tek Sütun",
+          "description": "Maksimum içerik yoğunluğuna sahip geleneksel tam genişlikli düzen"
+        },
+        "swissTwoColumn": {
+          "name": "İki Sütun",
+          "description": "Yetenekler için kenar çubuğu içeren deneyim odaklı ana sütun"
+        },
+        "modern": {
+          "name": "Modern",
+          "description": "Özelleştirilebilir tema renkleriyle renkli vurgular"
+        },
+        "modernTwoColumn": {
+          "name": "Modern İki Sütun",
+          "description": "Modern renkli vurgular ve temalara sahip iki sütunlu düzen"
+        }
+      },
+      "accentColor": "Vurgu Rengi",
+      "accentColors": {
+        "blue": "Mavi",
+        "green": "Yeşil",
+        "orange": "Turuncu",
+        "red": "Kırmızı"
+      },
+      "pageSize": "Sayfa Boyutu",
+      "margins": "Kenar Boşlukları (mm)",
+      "margin": {
+        "top": "Üst",
+        "bottom": "Alt",
+        "left": "Sol",
+        "right": "Sağ"
+      },
+      "spacing": "Boşluk",
+      "spacingSection": "Bölüm",
+      "spacingItems": "Öğeler",
+      "spacingLines": "Satırlar",
+      "fontSize": "Yazı Tipi Boyutu",
+      "baseFontSize": "Temel",
+      "headerScale": "Başlıklar",
+      "headerFontFamily": "Başlıklar",
+      "bodyFontFamily": "Gövde",
+      "fontNames": {
+        "serif": "Serif",
+        "sans": "Sans",
+        "mono": "Mono"
+      },
+      "options": "Seçenekler",
+      "compactMode": "Kompakt Mod",
+      "contactIcons": "İletişim İkonları",
+      "effectiveOutput": "Etkili Çıktı",
+      "effectiveMargins": "Boşluklar (mm): Ü{top} A{bottom} S{left} S{right}",
+      "effectiveSectionGap": "Bölüm Boşluğu",
+      "effectiveItemGap": "Öğe Boşluğu",
+      "effectiveLineHeight": "Satır Yüksekliği",
+      "effectiveBaseFont": "Temel Yazı Tipi",
+      "effectiveHeaderScale": "Başlık Ölçeği",
+      "effectiveHeaderFont": "Başlık Yazı Tipi",
+      "effectiveBodyFont": "Gövde Yazı Tipi",
+      "compactHint": "Kompakt mod, boşlukları ve satır yüksekliğini daraltır. Kenar boşlukları ve temel yazı tipi boyutu sabit kalır.",
+      "resetDefaults": "Varsayılana Sıfırla"
+    },
+    "personalInfoForm": {
+      "placeholders": {
+        "name": "Ahmet Yılmaz",
+        "title": "Yazılım Mühendisi",
+        "email": "ahmet@ornek.com",
+        "phone": "+90 (555) 000 00 00",
+        "location": "Şehir, Ülke",
+        "website": "portfolyo.com",
+        "linkedin": "linkedin.com/in/ahmet",
+        "github": "github.com/ahmet"
+      }
+    },
+    "leftPanel": {
+      "editorPanel": "Editör Paneli",
+      "coverLetterEditor": "Ön Yazı Editörü",
+      "outreachEditor": "İletişim Mesajı Editörü",
+      "jdMatchAnalysis": "İlan Uyum Analizi"
+    },
+    "alerts": {
+      "saveNotAvailable": "Kaydetme yalnızca mevcut bir özgeçmiş düzenlenirken kullanılabilir.",
+      "saveFailed": "Özgeçmiş kaydedilemedi. Lütfen tekrar deneyin.",
+      "coverLetterSaveSuccess": "Ön yazı kaydedildi",
+      "outreachSaveSuccess": "İletişim mesajı kaydedildi",
+      "downloadSuccess": "Özgeçmiş indirildi",
+      "reloadFailed": "Değişiklikler uygulandı ancak özgeçmiş yeniden yüklenemedi. Lütfen sayfayı yenileyin.",
+      "downloadNotAvailable": "İndirme yalnızca kaydedilmiş özgeçmişler için kullanılabilir.",
+      "downloadFailed": "Özgeçmiş indirilemedi. Lütfen tekrar deneyin.",
+      "coverLetterSaveFailed": "Ön yazı kaydedilemedi. Lütfen tekrar deneyin.",
+      "coverLetterDownloadRequiresResume": "Ön yazıyı indirmek için önce özgeçmişi kaydedin.",
+      "coverLetterMissing": "Ön yazı mevcut değil. Ayarlar'dan ön yazı oluşturmayı etkinleştirin ve bir özgeçmişi uyarlayın.",
+      "coverLetterDownloadFailed": "Ön yazı indirilemedi: {error}",
+      "outreachSaveFailed": "İletişim mesajı kaydedilemedi. Lütfen tekrar deneyin.",
+      "coverLetterGenerateFailed": "Ön yazı oluşturulamadı: {error}",
+      "outreachGenerateFailed": "İletişim mesajı oluşturulamadı: {error}"
+    }
+  },
+  "enrichment": {
+    "title": "Resume Enhancement",
+    "loading": {
+      "analyzingTitle": "Analyzing your resume...",
+      "analyzingDescription": "Identifying areas that could use more detail",
+      "generatingTitle": "Crafting enhanced descriptions...",
+      "generatingDescription": "Using your answers to improve your resume",
+      "applyingTitle": "Applying enhancements...",
+      "applyingDescription": "Updating your master resume"
+    },
+    "questionProgress": "Question {current} of {total}",
+    "itemType": {
+      "experience": "Experience",
+      "project": "Project"
+    },
+    "shortcutHint": "Press Shift+Enter for new line, Cmd/Ctrl+Enter to continue",
+    "preview": {
+      "title": "Review New Content",
+      "description": "Review the new bullet points that will be added to your resume",
+      "applyButton": "Add to Resume",
+      "keepingLabel": "Keeping",
+      "addingLabel": "Adding",
+      "existingCount": "({count} existing)",
+      "newCount": "({count} new)",
+      "noExistingDescription": "No existing description"
+    },
+    "complete": {
+      "title": "Resume Enhanced!",
+      "updatedCountSingular": "{count} item updated successfully",
+      "updatedCountPlural": "{count} items updated successfully",
+      "updatedFallback": "Your resume has been updated with enhanced descriptions",
+      "doneButton": "Done"
+    },
+    "noImprovements": {
+      "title": "Özgeçmişiniz harika görünüyor!",
+      "defaultDescription": "İyileştirilmesi gereken herhangi bir öğe bulamadık. Deneyim ve proje açıklamalarınız zaten yeterince detaylı."
+    },
+    "error": {
+      "title": "Bir şeyler yanlış gitti",
+      "unexpected": "Beklenmedik bir hata oluştu"
+    }
+  },
+  "tailor": {
+    "title": "Özgeçmişi Uyarla",
+    "subtitle": "Özgeçmişinizi belirli bir iş için optimize edin",
+    "heroTitle": "Özgeçmişinizi Uyarlayın",
+    "selectResume": "Özgeçmiş Seçin",
+    "pasteJobDescription": "İş Tanımını Yapıştır",
+    "pasteJobDescriptionBelow": "İş Tanımını Aşağıya Yapıştır",
+    "jobDescriptionPlaceholder": "İş tanımını buraya yapıştırın...",
+    "promptLabel": "Uyarlama yoğunluğu",
+    "promptDescription": "Özgeçmişinizi iş tanımıyla ne kadar güçlü bir şekilde hizalayacağınızı seçin.",
+    "promptOptions": {
+      "nudge": {
+        "label": "Hafif dokunuş",
+        "description": "Mevcut deneyimi daha iyi hizalamak için minimum düzenlemeler."
+      },
+      "keywords": {
+        "label": "Anahtar kelime geliştirme",
+        "description": "Rolü veya kapsamı değiştirmeden ilgili anahtar kelimeleri harmanlayın."
+      },
+      "full": {
+        "label": "Tam uyarlama",
+        "description": "İş tanımını kullanarak kapsamlı uyarlama."
+      }
+    },
+    "analyzeJob": "İşi Analiz Et",
+    "generateTailored": "Uyarlanmış Özgeçmiş Oluştur",
+    "setupRequiredTitle": "[ KURULUM GEREKLİ ]",
+    "noApiKeyMessage": "> API anahtarı yapılandırılmadı. Özgeçmiş uyarlama için bir LLM sağlayıcısı gereklidir.",
+    "configureApiKey": "API Anahtarını Yapılandır",
+    "configureApiKeyFirst": "Önce API Anahtarını Yapılandır",
+    "charactersCount": "{count} karakter",
+    "matchScore": "Eşleşme Skoru",
+    "suggestions": "Öneriler",
+    "keywords": "Dahil Edilecek Anahtar Kelimeler",
+    "footerTagline": "YAPAY ZEKA DESTEKLİ OPTİMİZASYON MOTORU",
+    "diffModal": {
+      "title": "Yapay Zeka Uyarlama Sonuçlarını İnceleyin",
+      "subtitle": "Hatalı bilgi eklenmediğinden emin olmak için lütfen değişiklikleri dikkatlice inceleyin",
+      "summary": "Değişiklik Özeti",
+      "skillsAdded": "Eklenen Yetenekler",
+      "skillsRemoved": "Kaldırılan Yetenekler",
+      "descriptionsModified": "Düzenlenen Açıklamalar",
+      "certificationsAdded": "Eklenen Sertifikalar",
+      "highRiskChanges": "Yüksek Riskli Değişiklikler",
+      "warningTitle": "{count} adet yüksek riskli ekleme tespit edildi",
+      "warningMessage": "Lütfen bu eklemelerin orijinal özgeçmişinizde var olduğunu veya açıklamalarınızda yansıtıldığını onaylayın",
+      "summaryChanges": "Özet Değişiklikleri",
+      "skillChanges": "Yetenek Değişiklikleri",
+      "descriptionChanges": "Deneyim Açıklaması Değişiklikleri",
+      "experienceChanges": "Deneyim Girişi Değişiklikleri",
+      "educationChanges": "Eğitim Değişiklikleri",
+      "projectChanges": "Proje Değişiklikleri",
+      "certificationChanges": "Sertifika Değişiklikleri",
+      "rejectButton": "Reddet ve Yeniden Oluştur",
+      "confirmButton": "Onayla ve Kaydet"
+    },
+    "regenerateDialog": {
+      "title": "Uyarlanmış özgeçmiş yeniden oluşturulsun mu?",
+      "description": "Bu, mevcut önizlemeyi atacak ve yeni bir yapay zeka uyarlama sonucu talep edecektir.",
+      "confirmLabel": "Yeniden Oluştur"
+    },
+    "missingDiffDialog": {
+      "title": "Değişiklikler hesaplanamıyor",
+      "description": "Bu özgeçmiş için bir diff hesaplayamadık. Bu, yapılandırılmış verisi olmayan eski özgeçmişlerde olabilir. Uyarlanmış özgeçmişi kaydetmeye devam edebilir veya daha sonra incelemek üzere iptal edebilirsiniz.",
+      "confirmLabel": "Diff olmadan devam et"
+    },
+    "errors": {
+      "jobDescriptionTooShort": "İş tanımı çok kısa. Daha fazla detay ekleyip tekrar deneyin.",
+      "apiKeyError": "API anahtarınız çalışmıyor. Ayarlar'dan kontrol edin.",
+      "rateLimit": "İstek sınırına ulaşıldı. Yaklaşık bir dakika bekleyip tekrar deneyin.",
+      "failedToGenerate": "Özgeçmiş oluşturulamadı. Ayarlar'dan API anahtarınızı kontrol edip tekrar deneyin.",
+      "failedToPreview": "Özgeçmiş önizlenemedi. Ayarlar'dan API anahtarınızı kontrol edip tekrar deneyin.",
+      "failedToConfirm": "Değişiklikler uygulanamadı. Lütfen tekrar deneyin."
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "subtitle": "Tercihlerinizi yapılandırın",
+    "aiProvider": "Yapay Zeka Sağlayıcısı",
+    "aiProviderDescription": "Özgeçmiş analizi için tercih ettiğiniz yapay zeka sağlayıcısını seçin",
+    "apiKey": "API Anahtarı",
+    "apiKeyPlaceholder": "API anahtarınızı girin",
+    "saveApiKey": "API Anahtarını Kaydet",
+    "contentLanguage": "İçerik Dili",
+    "contentLanguageDescription": "Oluşturulan içerik (özgeçmişler, ön yazılar) için dil",
+    "uiLanguage": "Arayüz Dili",
+    "uiLanguageDescription": "Kullanıcı arayüzü için dil",
+    "theme": "Tema",
+    "themeDescription": "Tercih ettiğiniz renk temasını seçin",
+    "lightMode": "Açık",
+    "darkMode": "Koyu",
+    "systemMode": "Sistem",
+    "dangerZone": "Tehlikeli Bölge",
+    "clearApiKeys": "API Anahtarlarını Temizle",
+    "clearApiKeysDescription": "Yapılandırmadaki tüm kayıtlı API anahtarlarını kaldırır. Bu işlem geri alınamaz.",
+    "resetDatabase": "Veritabanını Sıfırla",
+    "resetDatabaseDescription": "Özgeçmişler, işler ve oluşturulan içerik dahil TÜM verileri siler. Bu işlem geri alınamaz.",
+    "llmConfigurationTitle": "LLM Yapılandırması",
+    "providerLabel": "Sağlayıcı",
+    "statusCards": {
+      "llm": "LLM",
+      "database": "Veritabanı",
+      "resumes": "Özgeçmişler",
+      "jobs": "İşler",
+      "improvements": "Geliştirmeler",
+      "masterResume": "Ana Özgeçmiş"
+    },
+    "statusValues": {
+      "healthy": "Sağlıklı",
+      "offline": "Çevrimdışı",
+      "connected": "Bağlı",
+      "configured": "Yapılandırıldı",
+      "notSet": "Ayarlanmadı"
+    },
+    "apiKeyMenu": {
+      "buttonLabel": "LLM API",
+      "title": "OpenAI API Anahtarı",
+      "description": "Barındırılan OpenAI modellerini etkinleştirmek için anahtarınızı sağlayın.",
+      "savedMessage": "API anahtarı kaydedildi.",
+      "loadError": "API anahtarı yüklenemiyor",
+      "updateError": "API anahtarı güncellenemiyor"
+    },
+    "setupRequired": {
+      "title": "[ KURULUM GEREKLİ ]",
+      "description": "> API anahtarı yapılandırılmadı. Özgeçmiş uyarlamayı etkinleştirmek için aşağıya LLM sağlayıcı API anahtarınızı ekleyin."
+    },
+    "systemStatus": {
+      "title": "Sistem Durumu",
+      "refresh": "Yenile",
+      "unableToConnect": "Sunucuya ulaşılamıyor",
+      "expectedAt": "Şu adreste bekleniyor: {apiUrl}",
+      "lastFetched": {
+        "never": "Hiçbir zaman",
+        "justNow": "Şimdi",
+        "minutesAgo": "{minutes}dk önce",
+        "hoursAgo": "{hours}sa önce"
+      }
+    },
+    "llmConfiguration": {
+      "selectedProvider": "SEÇİLİ: {provider}",
+      "modelLabel": "Model",
+      "defaultModel": "VARSAYILAN: {model}",
+      "apiKeyLabel": "API Anahtarı",
+      "apiKeyOptionalForOllama": "(Ollama için isteğe bağlı)",
+      "apiKeyPlaceholder": "sk-...",
+      "apiKeyNotRequiredPlaceholder": "Yerel modeller için gerekli değil",
+      "leaveBlankToKeepExistingKey": "MEVCUT ANAHTARI KORUMAK İÇİN BOŞ BIRAKIN",
+      "baseUrlLabel": "Taban URL (isteğe bağlı)",
+      "baseUrlPlaceholder": "örneğin https://api.openai.com/v1",
+      "baseUrlDescription": "Bir proxy/aggregator uç noktası kullanmak için API taban URL'sini geçersiz kılın. Sağlayıcı varsayılanını kullanmak için boş bırakın.",
+      "ollamaServerUrl": "Ollama Sunucu URL'si",
+      "ollamaServerUrlPlaceholder": "http://localhost:11434",
+      "testConnection": "Bağlantıyı Test Et",
+      "errorPrefix": "HATA: {error}",
+      "connectionSuccessful": "BAĞLANTI BAŞARILI",
+      "connectionFailed": "BAĞLANTI BAŞARISIZ",
+      "connectionDetails": "Sağlayıcı: {provider} | Model: {model}",
+      "testPromptLabel": "TEST PROMPT",
+      "modelOutputLabel": "MODEL ÇIKTISI",
+      "errorDetailLabel": "HATA DETAYI",
+      "healthErrors": {
+        "api_key_missing": "API anahtarı yapılandırılmadı. Lütfen Ayarlar'a bir anahtar ekleyin.",
+        "health_check_failed": "Sağlık kontrolü başarısız oldu.",
+        "duplicate_v1_path": "Sağlık kontrolü başarısız oldu. Taban URL yinelenen bir /v1 yolu içeriyor olabilir.",
+        "not_found_404": "Sağlık kontrolü başarısız oldu. 404 Bulunamadı - Taban URL'nin sağlayıcıyla eşleştiğini kontrol edin.",
+        "html_response": "Sağlık kontrolü başarısız oldu. Taban URL HTML döndürdü; bir konsol URL'si veya desteklenmeyen bir geçit yolu olabilir."
+      },
+      "healthWarnings": {
+        "empty_content": "LLM, sağlık kontrolü için boş içerik döndürdü."
+      }
+    },
+    "contentGeneration": {
+      "title": "İçerik Oluşturma",
+      "description": "Özgeçmiş uyarlama sırasında ek içerik oluşturmayı etkinleştirin. Etkinleştirildiğinde, bu belgeler uyarlanmış özgeçmişinizle birlikte otomatik olarak oluşturulacaktır.",
+      "coverLetter": {
+        "label": "Ön Yazı",
+        "description": "Özgeçmişinizle birlikte özel bir ön yazı oluşturun"
+      },
+      "outreachMessage": {
+        "label": "Soğuk İletişim Mesajı",
+        "description": "LinkedIn veya e-posta için bir ağ oluşturma mesajı oluşturun"
+      }
+    },
+    "promptSettings": {
+      "title": "Prompt Ayarları",
+      "description": "Özgeçmiş uyarlama için kullanılan varsayılan prompt'u seçin.",
+      "defaultLabel": "Varsayılan uyarlama prompt'u"
+    },
+    "footer": {
+      "status": {
+        "checking": "Kontrol ediliyor...",
+        "ready": "DURUM: HAZIR",
+        "setupRequired": "DURUM: KURULUM GEREKLİ",
+        "offline": "DURUM: ÇEVRİMDIŞI"
+      }
+    },
+    "errors": {
+      "unableToConnectBackend": "Sunucuya ulaşılamıyor. Çalıştığından emin olun.",
+      "apiKeyRequired": "Seçilen sağlayıcı için API anahtarı gereklidir.",
+      "unknownProvider": "Sunucudan bilinmeyen sağlayıcı döndü: {provider}",
+      "unableToSaveConfiguration": "Yapılandırma kaydedilemiyor",
+      "failedToClearApiKeys": "API anahtarları temizlenemedi. Lütfen tekrar deneyin.",
+      "failedToResetDatabase": "Veritabanı sıfırlanamadı. Lütfen tekrar deneyin."
+    }
+  },
+  "resumeViewer": {
+    "resumeNotFound": "Özgeçmiş bulunamadı",
+    "loading": "Özgeçmiş Yükleniyor...",
+    "useTailorFeature": "Uyarlama Özelliğini Kullan",
+    "retryProcessing": "İşlemi Tekrar Dene",
+    "deleteAndStartOver": "Sil ve Baştan Başla",
+    "returnToDashboard": "Kontrol Paneline Dön",
+    "enhanceResume": "Özgeçmişi Geliştir",
+    "downloadResume": "Özgeçmişi İndir",
+    "deletedTitle": "Özgeçmiş Silindi",
+    "deletedDescriptionMaster": "Ana özgeçmişiniz sistemden kalıcı olarak silindi.",
+    "deletedDescriptionRegular": "Özgeçmiş sistemden kalıcı olarak silindi.",
+    "deleteFailedTitle": "Silme Başarısız",
+    "errors": {
+      "processingFailed": "Özgeçmişinizi okuyamadık. İşlemi tekrar deneyin veya silip farklı bir dosya yükleyin.",
+      "stillProcessing": "Özgeçmişiniz hala işleniyor. Birkaç saniye bekleyip sayfayı yenileyin.",
+      "notProcessedYet": "Özgeçmiş henüz işlenmedi. Yapılandırılmış bir özgeçmiş oluşturmak için lütfen Uyarlama özelliğini kullanın.",
+      "noDataAvailable": "Özgeçmiş verisi mevcut değil.",
+      "failedToLoad": "Özgeçmiş verileri yüklenemedi.",
+      "failedToDelete": "Özgeçmiş silinemedi. Lütfen tekrar deneyin."
+    },
+    "titlePlaceholder": "Özgeçmiş başlığını girin..."
+  },
+  "preview": {
+    "margins": "Kenar Boşlukları",
+    "calculating": "Hesaplanıyor...",
+    "pageBreak": "Sayfa Sonu",
+    "pageCountSingular": "{count} sayfa",
+    "pageCountPlural": "{count} sayfa",
+    "zoomIn": "Yakınlaştır",
+    "zoomOut": "Uzaklaştır"
+  },
+  "resume": {
+    "personalInfo": {
+      "name": "Ad Soyad",
+      "title": "İş Unvanı",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "location": "Konum",
+      "website": "Web Sitesi",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "sections": {
+      "personalInfo": "Kişisel Bilgiler",
+      "summary": "Özet",
+      "experience": "Deneyim",
+      "education": "Eğitim",
+      "projects": "Projeler",
+      "skills": "Yetenekler ve Ödüller",
+      "skillsOnly": "Yetenekler",
+      "certifications": "Eğitim ve Sertifikalar",
+      "languages": "Diller",
+      "awards": "Ödüller",
+      "links": "Bağlantılar"
+    },
+    "defaults": {
+      "name": "Adınız"
+    },
+    "additional": {
+      "technicalSkills": "Teknik Yetenekler"
+    },
+    "additionalLabels": {
+      "technicalSkills": "Teknik Yetenekler:",
+      "languages": "Diller:",
+      "certifications": "Sertifikalar:",
+      "awards": "Ödüller:"
+    }
+  },
+  "coverLetter": {
+    "title": "Ön Yazı",
+    "generate": "Ön Yazı Oluştur",
+    "regenerate": "Yeniden Oluştur",
+    "copyToClipboard": "Panoya Kopyala",
+    "copied": "Kopyalandı!",
+    "editor": {
+      "placeholder": "Ön yazınız, özgeçmişinizi ön yazı oluşturma etkinken uyarladıktan sonra burada görünecektir...",
+      "tip": "İPUCU: İyi bir ön yazı genellikle 300-400 kelimedir. Kişiselleştirmek için gerektiği gibi düzenleyin."
+    },
+    "preview": {
+      "defaultName": "Adınız",
+      "emptyTitle": "Henüz ön yazı içeriği yok.",
+      "emptyDescription": "Ayarlar'dan ön yazı oluşturmayı etkinleştirin, ardından bir özgeçmişi uyarlayın."
+    },
+    "print": {
+      "emptyContent": "Kullanılabilir ön yazı içeriği yok."
+    }
+  },
+  "outreach": {
+    "title": "İletişim Mesajı",
+    "generate": "İletişim Mesajı Oluştur",
+    "regenerate": "Yeniden Oluştur",
+    "copy": "Kopyala",
+    "copyToClipboard": "Panoya Kopyala",
+    "copied": "Kopyalandı!",
+    "editor": {
+      "placeholder": "Soğuk iletişim mesajınız, özgeçmişinizi iletişim mesajı oluşturma etkinken uyarladıktan sonra burada görünecektir...",
+      "tip": "İPUCU: İletişim mesajlarını kısa tutun (100-150 kelime). Kopyalayıp LinkedIn veya e-postaya yapıştırın."
+    },
+    "preview": {
+      "channels": {
+        "linkedin": "LinkedIn",
+        "email": "E-posta"
+      },
+      "howToUseTitle": "Nasıl kullanılır:",
+      "steps": {
+        "step1": "1. Yukarıdaki butonu kullanarak mesajı kopyalayın",
+        "step2": "2. LinkedIn'i veya e-posta istemcinizi açın",
+        "step3": "3. Yapıştırın ve gerektiği gibi kişiselleştirin",
+        "step4": "4. İşe alım görevlilerine veya işe alım yöneticilerine gönderin"
+      },
+      "emptyTitle": "Henüz iletişim mesajı yok.",
+      "emptyDescription": "Ayarlar'dan iletişim mesajı oluşturmayı etkinleştirin, ardından bir özgeçmişi uyarlayın."
+    }
+  },
+  "errors": {
+    "generic": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin.",
+    "networkError": "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
+    "unauthorized": "Devam etmek için lütfen giriş yapın.",
+    "notFound": "İstenen kaynak bulunamadı.",
+    "validationError": "Bazı alanların ilgiye ihtiyacı var. Vurgulanan alanları kontrol edip tekrar deneyin.",
+    "boundary": {
+      "title": "Bir Şeyler Yanlış Gitti",
+      "description": "Beklenmedik bir hata oluştu. Sayfayı yenilemeyi deneyin — eğer devam ederse bize bildirin.",
+      "tryAgain": "Tekrar Dene",
+      "reloadPage": "Sayfayı Yenile"
+    }
+  },
+  "a11y": {
+    "removeItem": "Öğeyi kaldır",
+    "removeDescription": "Bu satırı kaldır",
+    "removeFile": "Dosyayı kaldır"
+  },
+  "confirmations": {
+    "deleteResume": "Bu özgeçmiş silinsin mi?",
+    "deleteResumeDescription": "Özgeçmiş kalıcı olarak kaldırılacaktır.",
+    "deleteMasterResumeTitle": "Ana Özgeçmişi Sil",
+    "deleteMasterResumeDescription": "Ana özgeçmişiniz kalıcı olarak kaldırılacaktır.",
+    "deleteResumeFromSystemDescription": "Özgeçmiş sistemden kalıcı olarak kaldırılacaktır.",
+    "deleteResumeConfirmLabel": "Özgeçmişi Sil",
+    "keepResumeCancelLabel": "Özgeçmişi Tut",
+    "discardChanges": "Kaydedilmemiş değişiklikler atılsın mı?",
+    "discardChangesDescription": "Kaydedilmemiş tüm çalışmalarınızı kaybedeceksiniz.",
+    "clearApiKeys": "Tüm API Anahtarları Temizlensin mi?",
+    "clearApiKeysDescription": "Yapay zeka özelliklerini tekrar kullanmadan önce bunları yeniden girmeniz gerekecektir.",
+    "resetDatabase": "Her şeyi sıfırlayıp baştan mı başlamak istiyorsunuz?",
+    "resetDatabaseDescription": "Bu işlem her özgeçmişi, iş tanımını ve oluşturulan belgeyi kalıcı olarak siler."
+  },
+  "jobMatcher": {
+    "title": "CV'ye Uygun İş İlanı Öneri Sistemi",
+    "subtitle": "Özgeçmişinizi yükleyin, size en uygun ilanları bulalım",
+    "tabs": {
+      "upload": "CV Yükle",
+      "paste": "Metin Yapıştır"
+    },
+    "uploadArea": {
+      "title": "CV Dosyanızı Sürükleyin veya Tıklayın",
+      "subtitle": "PDF, DOCX veya görsel (PNG, JPG) formatında",
+      "loading": "CV Çözümleniyor..."
+    },
+    "pasteArea": {
+      "placeholder": "CV içeriğinizi buraya yapıştırın...",
+      "label": "CV Metni"
+    },
+    "positionLabel": "Aradığınız Pozisyon",
+    "positionPlaceholder": "Örn: Yazılım Geliştirici, Proje Yöneticisi...",
+    "analyzeButton": "Uygun İlanları Bul",
+    "analyzing": "İlanlar Analiz Ediliyor (15-20 sn sürebilir)...",
+    "resultsTitle": "Sizin İçin Bulunan Uygun İlanlar",
+    "noResults": "Bu kriterlere uygun ilan bulunamadı veya analiz başarısız oldu.",
+    "matchScore": "Uyum Skoru",
+    "matchScoreTitle": "%{score} Uyum",
+    "missingSkills": "Eksik Yetkinlikler",
+    "cvSuggestions": "CV Gelişim Önerileri",
+    "showDetails": "Detayları Göster",
+    "hideDetails": "Detayları Gizle",
+    "applyNow": "İlana Git",
+    "ilanNo": "İlan No: {no}",
+    "errorOccurred": "Analiz sırasında bir hata oluştu veya bağlantı zaman aşımına uğradı.",
+    "scoreExplanation": "Skor Açıklaması",
+    "potentialScore": "Geliştirmelerle ulaşılabilir maksimum skor: %{score}",
+    "matchingSkills": "Eşleşen Beceriler",
+    "noMatchingSkills": "Eşleşen beceri bulunamadı.",
+    "tags": {
+      "experience": "Deneyim",
+      "workType": "Çalışma Şekli",
+      "education": "Eğitim",
+      "age": "Yaş",
+      "gender": "Cinsiyet"
+    },
+    "errors": {
+      "uploadFailed": "Dosya yükleme başarısız oldu.",
+      "readFailed": "Dosya metni okunamadı.",
+      "fetchFailed": "Dosya bilgisi alınamadı.",
+      "timeout": "Dosya işleme zaman aşımına uğradı. Lütfen tekrar deneyin.",
+      "generic": "Dosya yüklenirken veya işlenirken bir hata oluştu."
+    }
+  }
+}

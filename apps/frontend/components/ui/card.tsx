@@ -8,17 +8,17 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'default', noPadding = false, ...props }, ref) => {
-    const baseStyles = 'rounded-none flex flex-col relative overflow-hidden';
+    const baseStyles = 'rounded-lg flex flex-col relative overflow-hidden';
 
     const variants = {
-      default: 'bg-canvas',
+      default: 'bg-rose-50/40 border border-rose-100 shadow-premium-sm',
       interactive: cn(
-        'bg-canvas border-2 border-transparent', // Initial state
-        'transition-all duration-200 ease-in-out',
+        'bg-rose-50/40 border border-rose-100',
+        'transition-all duration-300 ease-in-out',
         'cursor-pointer group',
-        'hover:z-20 hover:border-ink hover:shadow-sw-default hover:-translate-y-[2px] hover:-translate-x-[2px]'
+        'hover:z-20 hover:border-primary hover:shadow-premium-lg hover:-translate-y-[4px]'
       ),
-      outline: 'bg-canvas border-2 border-ink',
+      outline: 'bg-transparent border-2 border-primary',
       ghost: 'bg-transparent border-none shadow-none',
     };
 
