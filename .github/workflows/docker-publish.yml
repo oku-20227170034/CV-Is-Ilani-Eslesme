@@ -46,7 +46,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ghcr.io/srbhr/resume-matcher
+            ghcr.io/${{ github.repository }}
             ${{ env.HAS_DOCKERHUB != '' && 'srbhr/resume-matcher' || '' }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
