@@ -53,7 +53,7 @@ CV-Is-Ilani-Eslesme/
 │   └── frontend/
 │       └── app/                   # Next.js 15 bileşenleri ve sayfaları
 ├── eleman_scraper.py              # CLI test kazıma betiği
-├── baslat.bat                     # Backend ve Frontend'i tek tıkla başlatan betik
+├── docker_baslat.bat              # Docker ile tüm servisleri tek tıkla başlatan betik
 └── README.md                      # Proje açıklama dosyası
 ```
 
@@ -62,12 +62,11 @@ CV-Is-Ilani-Eslesme/
 ## 🛠️ Kurulum ve Çalıştırma
 
 ### Gereksinimler
-- **Python**: 3.11 veya üzeri (3.13 önerilir)
-- **Node.js**: v20 veya üzeri
-- **Tesseract OCR**: (Görsellerden metin okumak için sisteminizde kurulu olmalıdır)
+- **Docker**: Docker Desktop kurulu ve çalışıyor olmalıdır
+- **Docker Compose**: Docker Desktop ile birlikte otomatik olarak gelir
 
 ### Hızlı Başlangıç (Windows)
-Proje dizininde yer alan **`baslat.bat`** dosyasına çift tıklayarak hem FastAPI backend servisini (port 8000) hem de Next.js frontend arayüzünü (port 3000) otomatik olarak başlatabilirsiniz.
+Proje dizininde yer alan **`docker_baslat.bat`** dosyasına çift tıklayarak tüm servisleri (FastAPI backend port 8000, Next.js frontend port 3000) Docker üzerinden otomatik olarak başlatabilirsiniz.
 
 ### Manuel Başlatma
 
